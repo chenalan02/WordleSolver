@@ -21,6 +21,8 @@ class WordleSolver():
 
     def guess(self, guess):
         new_letters, new_positions = self.wordle.guess(guess)
+        if self.wordle.win != True:
+            self.word_base.remove([char for char in guess])
         for letter, known in new_letters:
             self._filter_letter(letter, known)
         for letter, i in new_positions:

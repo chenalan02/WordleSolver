@@ -7,6 +7,7 @@ class Wordle():
         self.known_positions = [None] * 5
         self.turn = 0
         self.game_over = False
+        self.win = False
 
     def guess(self, guess:str):
         guess = [char for char in guess.lower()]
@@ -49,7 +50,7 @@ class Wordle():
     def _check_win(self, guess:str):
         if guess == self.word:
             self.game_over = True
-            print("game win")
+            self.win = True
 
     def print_known_letters(self):
         print("known_letters: " + str(self.known_letters))
